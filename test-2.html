@@ -4,8 +4,11 @@
   <title>사슴에 관하여</title>
 </head>
 <body>
-    <input type="text" id="color">
+    <input type="text" id="firstColor">
+    <input type="text" id="secondColor">
+    <input type="text" id="thirdColor">
     <input type="button" value="change" onclick="backgroundColorChangeToColorTextInput()">
+
     <!-- <input type="button" value="red" onclick="changeRed()">
     <input type="button" value="orange" onclick="changeOrange()">
     <input type="button" value="yellow" onclick="changeYellow()"> -->
@@ -14,14 +17,19 @@
 </body>
     <script>
         function backgroundColorChangeToColorTextInput() {
-            let typedColor = document.getElementById("color");
-            alert(typedColor.value);
-            // document.body.style.background = (typedColor.value);
-            if (typedColor.value === "red" || typedColor.value === "blue" || typedColor.value === "yellow") {
-                document.body.style.background = typedColor.value;
-            } else {
-                alert("red, blue, yellow 중 선택");
-            }
+            let typedColor1 = document.getElementById("firstColor");
+            let typedColor2 = document.getElementById("secondColor");
+            let typedColor3 = document.getElementById("thirdColor");
+            // alert(typedColor.value);
+            setInterval(() => document.body.style.background = typedColor1.value, 1);
+            setInterval(() => document.body.style.background = typedColor2.value, 2);
+            setInterval(() => document.body.style.background = typedColor3.value, 3);
+            // document.body.style.background = (typedColor3.value);
+            // if (typedColor.value === "red" || typedColor.value === "blue" || typedColor.value === "yellow") {
+            //     document.body.style.background = typedColor.value;
+            // } else {
+            //     alert("red, blue, yellow 중 선택");
+            // }
         }
         // function changeRed() {
         //     alert("red");
