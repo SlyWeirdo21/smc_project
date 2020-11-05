@@ -4,14 +4,43 @@
   <title>사슴에 관하여</title>
 </head>
 <body>
-  사슴에 관한 진실.
+    <input type="text" id="color">
+    <input type="button" value="change" onclick="backgroundColorChangeToColorTextInput()">
+    <!-- <input type="button" value="red" onclick="changeRed()">
+    <input type="button" value="orange" onclick="changeOrange()">
+    <input type="button" value="yellow" onclick="changeYellow()"> -->
+    
+    사슴에 관한 진실.
 </body>
-<script>
-    alert(document.title);
-    for (const elem of document.body.children) {
-        alert(elem.text);
-    }
-</script>
+    <script>
+        function backgroundColorChangeToColorTextInput() {
+            let typedColor = document.getElementById("color");
+            alert(typedColor.value);
+            // document.body.style.background = (typedColor.value);
+            if (typedColor.value === "red" || typedColor.value === "blue" || typedColor.value === "yellow") {
+                document.body.style.background = typedColor.value;
+            } else {
+                alert("red, blue, yellow 중 선택");
+            }
+        }
+        // function changeRed() {
+        //     alert("red");
+        //     document.body.style.background = "red";
+        // }
+        // function changeOrange() {
+        //     alert("orange");
+        //     document.body.style.background = "orange";
+        // }
+        // function changeYellow() {
+        //     alert("yellow");
+        //     document.body.style.background = "yellow";
+        // }
+        // alert(document.title);
+        // for (const elem of document.body.children) {
+        //     alert(elem.text);
+        // }
+
+    </script>
     <a>
         사슴은 아름다운 동물입니다.
     </a>
