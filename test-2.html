@@ -1,36 +1,46 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
-  <title>사슴에 관하여</title>
+    <title>사슴에 관하여</title>
 </head>
+
 <body>
     <input type="text" id="firstColor">
     <input type="text" id="secondColor">
     <input type="text" id="thirdColor">
     <input type="button" value="change" onclick="backgroundColorChangeToColorTextInput()">
-
+    <input type="button" value="reset" onclick="backgroundColorChangeToColorTextInput2()">
     <!-- <input type="button" value="red" onclick="changeRed()">
     <input type="button" value="orange" onclick="changeOrange()">
     <input type="button" value="yellow" onclick="changeYellow()"> -->
-    
+
     사슴에 관한 진실.
 </body>
-    <script>
-        function backgroundColorChangeToColorTextInput() {
-            let typedColor1 = document.getElementById("firstColor");
-            let typedColor2 = document.getElementById("secondColor");
-            let typedColor3 = document.getElementById("thirdColor");
-            // alert(typedColor.value);
-            setInterval(() => document.body.style.background = typedColor1.value, 1000);
-            setInterval(() => document.body.style.background = typedColor2.value, 2000);
-            setInterval(() => document.body.style.background = typedColor3.value, 3000);
-            // document.body.style.background = (typedColor3.value);
-            // if (typedColor.value === "red" || typedColor.value === "blue" || typedColor.value === "yellow") {
-            //     document.body.style.background = typedColor.value;
-            // } else {
-            //     alert("red, blue, yellow 중 선택");
-            // }
-        }
+<script>
+    function backgroundColorChangeToColorTextInput() {
+        let typedColor1 = document.getElementById("firstColor");
+        let typedColor2 = document.getElementById("secondColor");
+        let typedColor3 = document.getElementById("thirdColor");
+
+        // alert(typedColor.value);
+        setInterval(() => document.body.style.background = typedColor1.value, 1000);
+        setInterval(() => document.body.style.background = typedColor2.value, 2000);
+        setInterval(() => document.body.style.background = typedColor3.value, 3000);
+        
+        // document.body.style.background = (typedColor3.value);
+        // if (typedColor.value === "red" || typedColor.value === "blue" || typedColor.value === "yellow") {
+        //     document.body.style.background = typedColor.value;
+        // } else {
+        //     alert("red, blue, yellow 중 선택");
+        // }
+    }
+    function backgroundColorChangeToColorTextInput2() {
+        firstColor.value = "";
+        secondColor.value = "";
+        thirdColor.value = "";
+    }
+    
         // function changeRed() {
         //     alert("red");
         //     document.body.style.background = "red";
@@ -48,9 +58,9 @@
         //     alert(elem.text);
         // }
 
-    </script>
-    <a>
-        사슴은 아름다운 동물입니다.
-    </a>
+</script>
+<a>
+    사슴은 아름다운 동물입니다.
+</a>
 
 </html>
