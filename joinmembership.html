@@ -1,0 +1,88 @@
+<!-- 회원가입 페이지를 만들어라
+
+이름 : 2~10 글자 사이의 input<text>     
+아이디 : 제한 없음
+비밀번호 : 1. ?!@_ 중의 하나가 들어가야 함  
+           2. 8글자 이상이어야 함
+주민등록번호 : input<text> 2개, 첫번째는 6글자 제한, 두번째는 1글자 제한, 모두 숫자여야 함
+
+완료 버튼 : 눌렀을때 모두 정확하다면 회원가입 완료!, 하나라도 틀렸다면 어떤 부분이 틀렸는지 출력
+다시쓰기 버튼 : 눌렀을때 모든 input<text> 의 값을 초기화
+
+
+
+힌트) 1. 변수명.length 를 통해 문자열의 길이를 가져올수 있음
+      2. 변수명.includes('들어가있는지 확인할 문자열') 을 통해 특정 문자, 문장이 들어가있는지 확인이 가능함 (https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/String/includes)
+      3. isNaN 이라는 함수를 사용하여, 모두 숫자인지를 확인할수 있음 (https://mommoo.tistory.com/77) -->
+<!DOCTYPE html>
+<html>
+  <body>
+    <p>이름</p>
+    <input type="text" id="name" />
+    <p>아이디</p>
+    <input type="text" id="id" />
+    <p>비밀번호</p>
+    <input type="text" id="password" />
+    <p>주민등록번호</p>
+    <input type="text" id="registerNumber1" />
+    <input type="text" id="registerNumber2" />
+
+    <input type="button" value="완료" onclick="validation_check()" />
+    <input type="button" value="다시쓰기" onclick="reset()" />
+
+    <script>
+      function validation_check() {
+        const name = document.getElementById('name').value;
+        if (2 > name.length && name.length > 10) {
+          alert('2~10 글자 사이어야 합니다.');
+          return false;
+        }
+
+        const password = document.getElementById('password').value;
+        if (!isIncludeSpecialCharacters(password) && password.length < 8) {
+          alert(
+            '비밀번호는 특수문자(?!@_) 중 하나를 포함하고, 8글자 이상이어야 합니다.',
+          );
+          return false;
+        }
+
+        const preRegistrationNumber = document.getElementById('registerNumber1')
+          .value;
+        const postRegistrationNumber = document.getElementById(
+          'registerNumber2',
+        ).value;
+
+        if (
+          preRegistrationNumber.length !== 6 ||
+          postRegistrationNumber.length !== 1 ||
+          isNaN(postRegistrationNumber) ||
+          isNaN(preRegistrationNumber)
+        ) {
+          alert(
+            '주민등록 번호의 첫자리는 6글자여야 하고, 두번째 박스는 1글자여야 합니다.',
+          );
+          return false;
+        }
+
+        alert('회원가입에 성공하였습니다.');
+        return true;
+      }
+
+      function isIncludeSpecialCharacters(password, special_characters) {
+        // ["@", "!", "_"] // for...of
+        for (const special_character of special_characters) {
+          if (password.includes(special_character)) {
+            return true;
+          }
+        }
+        return false;
+      }
+
+      function reset() {
+        for (const elem of document.querySelectorAll('input[type=text]')) {
+          elem.value = '';
+        }
+      }
+    </script>
+  </body>
+</html>
