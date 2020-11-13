@@ -235,3 +235,21 @@ FROM
     product
 GROUP BY
     CATEGORY_ID;
+
+-- 문제 15.
+-- 모든 상품의 개수, 가격의 합, 가격의 평균, 가격의 최대, 가격의 최소값을 동시에 뽑아주세요
+-- 다만, 그룹핑 하기 전의 상품의 가격이 1,000,000 넘는 상품은 제외해주세요
+SELECT
+    category_id,
+    COUNT(price)     AS 개수,
+    SUM(price)       AS 합,
+    AVG(price)       AS 평균,
+    MIN(price)       AS 최소,
+    MAX(price)       AS 최대
+FROM
+    product
+where
+    price <= 10000000
+
+GROUP BY 
+    category_id
