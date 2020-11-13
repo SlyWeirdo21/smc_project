@@ -188,7 +188,7 @@ ORDER BY
 -- 구매 금액, 카테고리, 상품명을 출력해야 합니다
 SELECT
     payment_history.order_price    AS 구매금액,
-    payment_history.order_count    AS 구매금액,
+    payment_history.order_count    AS 구매개수,
     product.name                   AS 상품명,
     category.name                  AS 카테고리명
     
@@ -229,8 +229,8 @@ SELECT
     COUNT(price)     AS 개수,
     SUM(price)       AS 합,
     AVG(price)       AS 평균,
-    MIN(price)       AS 최대,
-    MAX(price)       AS 최소
+    MAX(price)       AS 최대,
+    MIN(price)       AS 최소
 FROM
     product
 GROUP BY
